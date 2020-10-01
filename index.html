@@ -9,20 +9,15 @@
 </head>
 <body>
   <!--
-    Привет! Здесь и в стилях комментариями пометил места, которые у меня вызывали сомнения.
-    Возможно, в них следовало использовать другую тактику, но я сделал так, как сделал.
-    В комментах постарался кратко описать, почему я сделал именно так.
-
-    Жду фидбек, заранее спасибо!
+    Спасибо за подробное ревью! Внес правки и обновил комментарии.
+    Хорошего дня и настроения :)
   -->
   <div class="page">
 
     <header class="header">
-      <!--
-        Лого делаю ссылкой, чтобы было оправдано использование модификатора
-        .logo_place_footer в подвале сайта
-      -->
-      <a href="#" class="logo logo_place_header"></a>
+      <a href="#" class="logo logo_place_header">
+        <img src="images/logo_place_header.svg" alt="Яндекс Практикум">
+      </a>
       <h1 class="header__title">Научиться учиться</h1>
       <p class="header__subtitle">
         Какие современные и эффективные подходы к обучению вы можете использовать в своей жизни? <a href="#" class="header__link">Узнать →</a>
@@ -45,12 +40,7 @@
       </section>
 
       <section class="digits">
-        <h2 class="section-title section-title_margin-bottom">Цифры и факты</h2>
-        <!--
-          Может я ошибся и тут следовало разместить h3, а заголовки ниже сделать h4.
-          Но мне кажется, что это скорее дополнение к заголовку h2, а не отдельный
-          подзаголовок, поэтому ставлю тег абзаца
-        -->
+        <h2 class="section-title digits__title-margin">Цифры и факты</h2>
         <p class="section-subtitle">Про учёбу и мозг</p>
         <ul class="table">
           <li class="table__cell">
@@ -90,27 +80,24 @@
         </ul>
       </section>
 
-      <!--
-        В брифе этот блок помечен как feynman, а в этом файле (и файле texts.md) изначально
-        назывался feinman. Я следовал брифу, поэтому переименовал его из feinman в feynman
-      -->
       <section class="feynman">
         <h2 class="feynman__title">Метод Фейнмана</h2>
-        <!-- Тоже кажется, что тут логичнее абзац, а не h3 -->
         <p class="feynman__subtitle">Выучить и не забыть.</p>
         <a href="#" class="feynman__link">Подробнее →</a>
       </section>
 
       <section class="kaufman">
-        <h2 class="section-title section-title_theme_dark section-title_margin-bottom">Принципы обучения</h2>
-        <!-- Тоже по-моему уместнее абзац, а не h3 -->
+        <h2 class="section-title section-title_theme_dark kaufman__title-margin">Принципы обучения</h2>
         <p class="section-subtitle section-subtitle_theme_dark">от Джоша Кауфмана</p>
         <ol class="table table_theme_dark">
           <li class="table__cell table__cell_theme_dark">
             <!--
-              Не уверен, что тут h3 уместны, т.к. в качестве текста
-              используются простые числа. Но поставлю h3, т.к. в этом
-              же компоненте выше мы использовали именно h3
+              >>Вместо отдельного элемента можно использовать псевдоэлемент и счетчик на css.
+              >>Так при любом количестве элементов автоматически поставится нужный номер.
+
+              Полностью согласен. Как понимаю, это не критичное замечание, поэтому делать не буду. Т.к. по брифу
+              этот HTML-элемент должен быть "table__heading table__heading_theme_dark" => псевдоэлемент - это
+              отход от брифа :(
             -->
             <h3 class="table__heading table__heading_theme_dark">1</h3>
             <p class="table__text table__text_theme_dark">Выберите привлекательный проект.</p>
@@ -152,7 +139,14 @@
             <p class="table__text table__text_theme_dark">Уделяйте внимание количеству и скорости.</p>
           </li>
         </ol>
-        <img src="images/kaufman-triangle.svg" class="kaufman__triangle" alt="Треугольник">
+        <!--
+          >>Треугольник это не контентная картинка, а декоративная. Он должен быть вставлен либо фоном к элементу,
+          >>либо псевдоэлементом.
+
+          Вставил в качестве фонового изображения для тега div, а не псевдоэлементом, т.к. по брифу треугольник
+          должен быть "kaufman__triangle"
+        -->
+        <div class="kaufman__triangle"></div>
       </section>
 
     </main>
@@ -160,38 +154,24 @@
     <footer class="footer">
       <div class="footer__columns">
         <div class="footer__column footer__column_content_copyright">
-          <!--
-            В брифе указано: уникальное изображение присвойте модификатору. Поэтому и здесь, в и шапке
-            для логотипа используется тег ссылки, а не img
-          -->
           <a href="#" class="logo logo_place_footer"></a>
-          <!--
-            Если я правильно понял бриф, то символ копирайта нужно было вставить именно как html-entity.
-            Но в теории текущего спринта точно был урок, в котором при использовании кодировки UTF-8 рекомендовалось
-            по возможности все символы вставлять текстом.
-            Сейчас 2020 год, но в брифе указан именно 2019, поэтому оставляю 2019
-          -->
           <p class="footer__author">&copy; 2019. Виктор Абанькин</p>
         </div>
         <div class="footer__column footer__column_content_info">
-           <!--
-             Использую абзац, а не h2, т.к. два h2 заголовка для подвала будет слишком.
-             Не использую h3, т.к. нет предшествующего h2
-           -->
-          <p class="footer__column-heading">О практикуме</p>
-          <ul class="footer__column-links">
-            <li><a href="#" class="footer__column-link">Главная</a></li>
-            <li><a href="#" class="footer__column-link">Концепция</a></li>
-            <li><a href="#" class="footer__column-link">Наставники</a></li>
-          </ul>
+          <h2 class="footer__column-heading">О практикуме</h2>
+          <nav class="footer__column-links">
+            <a href="#" class="footer__column-link">Главная</a>
+            <a href="#" class="footer__column-link">Концепция</a>
+            <a href="#" class="footer__column-link">Наставники</a>
+          </nav>
         </div>
         <div class="footer__column footer__column_content_social">
-          <p class="footer__column-heading">Соцсети</p>
-          <ul class="footer__column-links">
-            <li><a href="#" class="footer__column-link social-icon social-icon_type_facebook">Facebook</a></li>
-            <li><a href="#" class="footer__column-link social-icon social-icon_type_vkontakte">ВКонтакте</a></li>
-            <li><a href="#" class="footer__column-link social-icon social-icon_type_instagram">Instagram</a></li>
-          </ul>
+          <h2 class="footer__column-heading">Соцсети</h2>
+          <nav class="footer__column-links">
+            <a href="#" class="footer__column-link footer__social-icon footer__social-icon_type_facebook">Facebook</a>
+            <a href="#" class="footer__column-link footer__social-icon footer__social-icon_type_vkontakte">ВКонтакте</a>
+            <a href="#" class="footer__column-link footer__social-icon footer__social-icon_type_instagram">Instagram</a>
+          </nav>
         </div>
       </div>
     </footer>
