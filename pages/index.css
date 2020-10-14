@@ -93,6 +93,3 @@
 
 /* одинаковый внешний отступ снизу у всех заголовков */
 @import url(../blocks/page/__section-title/page__section-title.css);
-
-/* одинаковый стиль у всех ссылок при :hover */
-@import url(../blocks/page/__link/page__link.css);

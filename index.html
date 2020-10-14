@@ -8,29 +8,50 @@
 </head>
 <body>
   <!--
-    Привет!
-    Как и в прошлый раз - комментирую, почему те или иные вещи сделал именно так, а не иначе.
 
-    Внёс некоторые правки в блоки из предыдущего спринта, т.к. текущий бриф отличается от предыдущего.
-    Не знаю, нужно ли было вносить эти правки, но вот они:
+    Привет! Спасибо за молниеносный фитбек :)
 
-    .feynman__title - отступ сверху сделал 80пх (в прошлом брифе отступ был 100пх)
-    .feynman__link - цвет ссылки поменял на черный (в прошлом брифе ссылка была синей), также поменялось
-    положение ссылки по вертикали, но на глаз изменения с достаточной точностью не определить, а в новом брифе по этому
-    элементу чисел нет => оставляю позицию без изменения.
+    Внёс все изменения, вот несколько уточнений:
 
-    Ниже еще 3 комментария, спасибо <3
+    >> .header - Блок сейчас отображается не по брифу. Ему не хватает высоты из брифа, минимальной и максимальной высоты из брифа
+
+    Сейчас я убрал фиксированную высоту и указал min-height и max-height исходя из первого брифа. Однако обратите внимание - с такими значениями
+    шапка в браузере отличается от шапки в макете.
+    Скриншот из макета: https://i.imgur.com/qHF7Ein.png (между квадратом и изображением есть пустое пространство)
+    Скриншот из браузера - https://i.imgur.com/zyWwpu6.png (между квадратом и изображением пустого пространства нет)
+
+    Я заметил это при выполнении первой проектной работы, поэтому указал фиксированную высоту шапки и оставил комментарий для предыдущего ревьюера,
+    никаких замечаний не было.
+
+    *****************************   *****************************   *****************************
+
+    >> Для спецсимволов и для избавления от "висящих" предлогов рекомендуется использовать мнемоники. Подробнее можно почитать тут: https://habr.com/ru/post/179373/
+
+    Исправил, я с вами полностью согласен. Но обратите внимание: в стандартах Яндекс.Практикума https://code.s3.yandex.net/web-developer/static/design-rules/index.html
+    написано: "При использовании UTF-8 не используйте ссылки на HTML-сущности" - именно поэтому я не использовал мнемоники для стрелок. В подвале у символа
+    копирайта мнемоник только потому, что в первом брифе было явное указание на использование мнемоника в копирайте.
+
+    *****************************   *****************************   *****************************
+
+    >> footer__column-heading - Необходимо использовать иерархию заголовков. Мы заголовками второго уровня озаглавливаем целые секции.
+    >> Здесь же всего лишь колонки в подвале
+
+    Убрал h2 заголовки из подвала, полностью согласен с вами. Но в первой проектной работе здесь мне рекомендовали использовать h2
+    Скриншот: https://i.imgur.com/CkyJOp8.png - имя ревьюера скрыл, вдруг это конфиденциальная информация :)
+
+
+    !!! Спасибо, что всё это читаете и даёте подробную обратную связь <3 <3 <3 !!!
+
   -->
   <div class="page">
 
     <header class="header">
-      <!-- Делаю эффект при :hover через page__link, т.к. эффект наведения одинаков для всех ссылок на странице -->
-      <a href="#" class="page__link logo logo_place_header">
+      <a href="#" class="logo logo_place_header">
         <img src="images/logo_place_header.svg" alt="Яндекс Практикум">
       </a>
       <h1 class="header__title">Научиться учиться</h1>
       <p class="header__subtitle">
-        Какие современные и эффективные подходы к обучению вы можете использовать в своей жизни? <a href="#" class="page__link header__link">Узнать →</a>
+        Какие современные и эффективные подходы к обучению вы можете использовать в своей жизни? <a href="#" class="header__link">Узнать &rarr;</a>
       </p>
       <img src="images/header-image.png" class="header__main-illustration" alt="Фрагмент картины 'Опять двойка'">
       <div class="header__square-pic rotation"></div>
@@ -50,7 +71,6 @@
       </section>
 
       <section class="techniques">
-        <!-- У всех блоков section-title одинаковый отступ снизу, поэтому вынес отступ в page__section-title -->
         <h2 class="section-title page__section-title">Техники обучения</h2>
         <p class="section-subtitle">Пять практик от Барбары Оакли</p>
         <ul class="cards">
@@ -60,7 +80,7 @@
             <p class="cards__description">Глубокие знания возникают, если чередовать сфокусированное и рассеянное мышление.</p>
           </li>
           <li class="cards__item">
-            <img src="images/cards-recall.png" alt="Recall" class="cards__image">
+            <img src="images/cards-recall.png" alt="Вспоминайте изученное" class="cards__image">
             <h3 class="cards__title">Recall</h3>
             <p class="cards__description">Вспоминайте изученное — это позволит соединить разрозненные порции памяти.</p>
           </li>
@@ -103,7 +123,7 @@
       <section class="feynman">
         <h2 class="feynman__title">Метод Фейнмана</h2>
         <p class="feynman__subtitle">Выучить и не забыть.</p>
-        <a href="#" class="page__link feynman__link">Подробнее →</a>
+        <a href="#" class="feynman__link">Подробнее &rarr;</a>
       </section>
 
       <section class="digits">
@@ -158,7 +178,7 @@
           <p class="khan__quote-author-subline">Кинорежиссер, продюсер</p>
           <div class="khan__book-container">
             <img src="images/khan-book.jpg" alt="Весь мир — школа (обложка книги)" class="khan__book-pic">
-            <a href="#" class="page__link khan__buy-link">Купить книгу →</a>
+            <a href="#" class="khan__buy-link">Купить книгу &rarr;</a>
           </div>
         </div>
       </section>
@@ -214,19 +234,12 @@
       <section class="resources">
         <h2 class="section-title page__section-title">Полезные ресурсы</h2>
         <p class="section-subtitle">Больше материалов о техниках и лайфхаках обучения</p>
-        <div class="resources__logo-zone">
-          <!--
-            Добавил дополнительный элемент, которого нет в брифе: resources__logo-img, чтобы была возможность сделать ссылки с логотипов
-            (т.к. исходя из контекста - они должны быть ссылками). Вообще мне не очень нравится, что у resources__logo фиксированная ширина,
-            из-за этого по бокам от картинок есть пустое место, которое тоже является ссылкой (мне кажется в идеале ссылкой должен быть
-            только логотип, без пустого пространства по бокам). Но в брифе указаны четкие размеры для resources__logo - может быть
-            так и задумано
-          -->
-          <a href="https://arzamas.academy/" class="page__link resources__logo" target="_blank" rel="nofollow"><img src="images/resources-arzamas.svg" alt="Логотип Арзамас" class="resources__logo-img"></a>
-          <a href="https://nplus1.ru/" class="page__link resources__logo" target="_blank" rel="nofollow"><img src="images/resources-n1.svg" alt="Логотип N1" class="resources__logo-img"></a>
-          <a href="https://strelka.com/" class="page__link resources__logo" target="_blank" rel="nofollow"><img src="images/resources-strelka.svg" alt="Логотип Стрелка" class="resources__logo-img"></a>
-          <a href="https://polka.academy/" class="page__link resources__logo" target="_blank" rel="nofollow"><img src="images/resources-polka.svg" alt="Логотип Полка" class="resources__logo-img"></a>
-        </div>
+        <ul class="resources__logo-zone">
+          <li><a href="https://arzamas.academy/" class="resources__logo" target="_blank" rel="nofollow"><img src="images/resources-arzamas.svg" alt="Логотип Арзамас" class="resources__logo-img"></a></li>
+          <li><a href="https://nplus1.ru/" class="resources__logo" target="_blank" rel="nofollow"><img src="images/resources-n1.svg" alt="Логотип N1" class="resources__logo-img"></a></li>
+          <li><a href="https://strelka.com/" class="resources__logo" target="_blank" rel="nofollow"><img src="images/resources-strelka.svg" alt="Логотип Стрелка" class="resources__logo-img"></a></li>
+          <li><a href="https://polka.academy/" class="resources__logo" target="_blank" rel="nofollow"><img src="images/resources-polka.svg" alt="Логотип Полка" class="resources__logo-img"></a></li>
+        </ul>
       </section>
 
     </main>
@@ -234,23 +247,23 @@
     <footer class="footer">
       <div class="footer__columns">
         <div class="footer__column footer__column_content_copyright">
-          <a href="#" class="page__link logo logo_place_footer"><img src="images/logo_place_footer.svg" alt="Яндекс Практикум"></a>
+          <a href="#" class="logo logo_place_footer"><img src="images/logo_place_footer.svg" alt="Яндекс Практикум"></a>
           <p class="footer__author">&copy; 2019. Виктор Абанькин</p>
         </div>
         <div class="footer__column footer__column_content_info">
-          <h2 class="footer__column-heading">О практикуме</h2>
+          <p class="footer__column-heading">О практикуме</p>
           <nav class="footer__column-links">
-            <a href="#" class="page__link footer__column-link">Главная</a>
-            <a href="#" class="page__link footer__column-link">Концепция</a>
-            <a href="#" class="page__link footer__column-link">Наставники</a>
+            <a href="#" class="footer__column-link">Главная</a>
+            <a href="#" class="footer__column-link">Концепция</a>
+            <a href="#" class="footer__column-link">Наставники</a>
           </nav>
         </div>
         <div class="footer__column footer__column_content_social">
-          <h2 class="footer__column-heading">Соцсети</h2>
+          <p class="footer__column-heading">Соцсети</p>
           <nav class="footer__column-links">
-            <a href="#" class="page__link footer__column-link footer__social-icon footer__social-icon_type_facebook">Facebook</a>
-            <a href="#" class="page__link footer__column-link footer__social-icon footer__social-icon_type_vkontakte">ВКонтакте</a>
-            <a href="#" class="page__link footer__column-link footer__social-icon footer__social-icon_type_instagram">Instagram</a>
+            <a href="#" class="footer__column-link footer__social-icon footer__social-icon_type_facebook">Facebook</a>
+            <a href="#" class="footer__column-link footer__social-icon footer__social-icon_type_vkontakte">ВКонтакте</a>
+            <a href="#" class="footer__column-link footer__social-icon footer__social-icon_type_instagram">Instagram</a>
           </nav>
         </div>
       </div>
